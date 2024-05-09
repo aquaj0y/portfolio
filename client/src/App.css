@@ -1,0 +1,201 @@
+#root {
+  width: 100%;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  border-radius: 30%;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* @keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+/* 
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* /////////////////////////////////// */
+/* Header */
+/* /////////////////////////////////// */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar li {
+  padding: 1em;
+  list-style-type: none;
+}
+
+.header-container,
+.header-container-simple {
+  background-color: rgba(255, 228, 196, 0.3);
+  position: sticky;
+  top: 0;
+}
+
+.header-container-simple {
+  /* use text-align: center for inline elements, img is inline element */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* /////////////////////////////////// */
+/* Home Page */
+/* /////////////////////////////////// */
+
+.hero {
+  /* How to Center: When using flex, do not set parent div width:80% & margin: auto 0. Set the children div's max-width, children need to be block elements. Because flex is already using justify-content: center to center */
+  display: flex;
+  justify-content: center;
+  padding-top: 7em;
+  padding-bottom: 7em;
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em;
+  max-width: 50%;
+}
+
+.about-details > * {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* color: greenyellow; */
+}
+
+.profile-pic {
+  display: block;
+  border-radius: 50%;
+  max-height: 220px;
+  margin-top: 3em;
+  align-self: first baseline;
+}
+
+.hi-my-name {
+  color: rgb(64, 64, 64);
+  font-size: 1.4em;
+}
+
+.bio {
+  padding-top: 2.5em;
+  font-size: 1.25em;
+}
+
+/* #email-btn {
+} */
+
+/* Footer */
+
+.footer-logo {
+  display: block;
+  align-self: center;
+  border-radius: 30%;
+  height: 10em;
+  padding: 1.5em;
+}
+
+.footer {
+  /* padding: 3em; */
+  margin-bottom: 0;
+  /* padding: 0; */
+  /* background-color: bisque; */
+  background-color: rgba(255, 228, 196, 0.6);
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-links a {
+  padding: 2em;
+  color: black;
+  /* pointer-events: none; */
+}
+
+/* CONTACT COMPONENT */
+.contact-title {
+  padding: 1em;
+  padding-bottom: 1.5em;
+  text-align: center;
+}
+
+.form-container {
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 4em;
+  padding-bottom: 10em;
+}
+
+#send-email-btn {
+  width: 30%;
+  margin-right: 0;
+  margin-left: 70%;
+}
+
+/* PROJECTS COMPONENT */
+.technologies {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
+  gap: 3em;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.projects-grid {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10em;
+}
+
+.project-item:hover {
+  filter: drop-shadow(0 0 1.5em #ed6e78);
+}
+
+.tags-container {
+  display: flex;
+  width: 40%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  justify-content: space-around;
+}
