@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, NavLink, Link } from 'react-router-dom';
 
 // MUI
 import Grid from '@mui/material/Grid';
@@ -26,16 +25,54 @@ import WeatherAPICover from '../assets/weatherAPI-cover.png'
 import NewFashionedCover from '../assets/new-fashioned-cover.png'
 import StarWarUniverseCover from '../assets/star-war-universe-cover.png'
 import TravelBugCover from '../assets/travel-bug-cover.png'
+import { red } from '@mui/material/colors';
 
 
 export default function Projects() {
   let navigate = useNavigate();
 
+  function ProjectCard({ projectName, projectCoverImg, tags, initialElevation = 2, hoverElevation = 11, description, demoLink, githubLink}) {
+    const [elevation, setElevation] = useState(initialElevation)
+
+
+    return (
+      <Grid className='project-item' item xs={12} md={6}>
+        <NavLink
+          to={`/projects/${projectName}`}
+          state={{projectName, projectCoverImg, tags, description}}
+        >
+          <Paper
+            sx={{ maxWidth: '45em', m: 'auto' }}
+            elevation={elevation}
+            onMouseOver={() => setElevation(hoverElevation)}
+            onMouseOut={()=> setElevation(initialElevation)}
+          >
+            <CardMedia
+              sx={{
+                height: 350,
+                width: '100%'
+              }}
+              image={projectCoverImg}
+            />
+            <CardContent sx={{ backgroundColor: '#e6b3b3' }}>
+              <Typography variant="h5" component="div" sx={{ paddingTop: 2 }}>
+                {projectName}
+              </Typography>
+              <div className='tags-container'>
+                {tags.map((tag) => <h3 className='tag'>{tag}</h3>) }
+              </div>
+              <Typography variant='body1'>{description}</Typography>
+            </CardContent>
+          </Paper>
+        </NavLink>
+      </Grid>
+    )
+  }
+
   return (
     <>
       {/* Technologies I use */}
       <Typography variant='h3' sx={{paddingTop: '1em', paddingBottom: '2em', textAlign: 'center' }}>Technologies I Use</Typography>
-
       <div className='technologies'>
         <Grid container spacing={5} direction="row"
         wrap='wrap'
@@ -115,135 +152,64 @@ export default function Projects() {
         <Grid container spacing={10} maxWidth='lg'>
           
           {/* Nomad Advisor */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Link to={`/projects/nomad-advisor`} >
-              <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-                <CardMedia
-                  sx={{height: 350, width: '100%'}}
-                  image={NomadAdvisorCover}
-                />
-                <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                  <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                  Nomad Advisor
-                  </Typography>
-                  <div className='tags-container'>
-                    <h3 className='tag'>React</h3>
-                    <h3 className='tag'>Material UI</h3>
-                    <h3 className='tag'>Django</h3>
-                  </div>
-                  <Typography variant='body1'>For travelers and digital nomads in discovering new cities and sharing their experiences. </Typography>
-                </CardContent>
-              </Paper>
-            </Link>
-          </Grid>
-        
-          {/* Tick-it */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Link to='/projects/tick-it' >
-              <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-                <CardMedia
-                  sx={{height: 350, width: '100%'}}
-                  image={TickItCover}
-                />
-                <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                  <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                  Tick-it
-                  </Typography>
-                  <div className='tags-container'>
-                    <h3 className='tag'>CSS</h3>
-                    <h3 className='tag'>React</h3>
-                    <h3 className='tag'>Django</h3>
-                  </div>
-                  <Typography variant='body1'>Upcoming concerts, sports event and venues in metropolitans cities</Typography>
-                </CardContent>
-              </Paper>
-            </Link>
-          </Grid>
+          <ProjectCard 
+            projectName= 'Nomad Advisor'
+            projectCoverImg={NomadAdvisorCover}
+            tags={['React', 'Django', 'MUI']}
+            elevation={2}
+            hoverElevation={11}
+            description = 'For travelers and digital nomads in discovering new cities and sharing their experiences'
+          />
+
+          <ProjectCard 
+            projectName= 'Tick-it'
+            projectCoverImg={TickItCover}
+            tags={['CSS', 'React', 'Django']}
+            elevation={2}
+            hoverElevation={11}
+            description = 'Upcoming concerts, sports event and venues in metropolitans cities'
+          />
 
           {/* Weather API */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-              <CardMedia
-                sx={{height: 350, width: '100%'}}
-                image={WeatherAPICover}
-              />
-              <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                Weather API
-                </Typography>
-                <div className='tags-container'>
-                  <h3 className='tag'>HTML5</h3>
-                  <h3 className='tag'>CSS</h3>
-                  <h3 className='tag'>JavaScript</h3>
-                </div>
-                <Typography variant='body1'>Get instant weather forecasts for any city with a simple, intuitive interface.</Typography>
-              </CardContent>
-            </Paper>
-          </Grid>
+          <ProjectCard 
+            projectName= 'Weather API'
+            projectCoverImg={WeatherAPICover}
+            tags={['HTML', 'CSS', 'JavaScript']}
+            elevation={2}
+            hoverElevation={11}
+            description = 'Get instant weather forecasts for any city with a simple, intuitive interface.'
+          />
 
           {/* New Fashioned */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-              <CardMedia
-                sx={{height: 350, width: '100%'}}
-                image={NewFashionedCover}
-              />
-              <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                New Fashioned
-                </Typography>
-                <div className='tags-container'>
-                  <h3 className='tag'>CSS</h3>
-                  <h3 className='tag'>React</h3>
-                  <h3 className='tag'>API</h3>
-                  <h3 className='tag'>SwiperJS</h3>
-                </div>
-                <Typography variant='body1'>Discover alcoholic and non-alcoholic cocktail recipes, powered by an external API</Typography>
-              </CardContent>
-            </Paper>
-          </Grid>
+          <ProjectCard 
+            projectName= 'New Fashioned'
+            projectCoverImg={NewFashionedCover}
+            tags={['CSS', 'React', 'API', 'SwiperJS']}
+            elevation={2}
+            hoverElevation={11}
+            description = 'Discover alcoholic and non-alcoholic cocktail recipes, powered by an external API'
+          />
 
           {/* Starwars */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-              <CardMedia
-                sx={{height: 350, width: '100%'}}
-                image={StarWarUniverseCover}
-              />
-              <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                Star War Universe
-                </Typography>
-                <div className='tags-container'>
-                  <h3 className='tag'>React</h3>
-                  <h3 className='tag'>API</h3>
-                </div>
-                <Typography variant='body1'> interactive front-end application utilizes the Star Wars API to deliver detailed information on planets, starships, and more</Typography>
-              </CardContent>
-            </Paper>
-          </Grid>
+          <ProjectCard 
+            projectName= 'Star War Universe'
+            projectCoverImg={StarWarUniverseCover}
+            tags={['React', 'API']}
+            elevation={2}
+            hoverElevation={11}
+            description = 'interactive front-end application utilizes the Star Wars API to deliver detailed information on planets, starships, and more'
+          />
 
           {/* Travel Bug */}
-          <Grid className='project-item' item xs={12} md={6}>
-            <Paper sx={{ maxWidth: '45em', m: 'auto' }} elevation={2}>
-              <CardMedia
-                sx={{height: 350, width: '100%'}}
-                image={TravelBugCover}
-              />
-              <CardContent  sx={{backgroundColor: '#e6b3b3'}}>
-                <Typography  variant="h5" component="div" sx={{paddingTop: 2}}>
-                Travel Bug
-                </Typography>
-                <div className='tags-container'>
-                  <h3 className='tag'>React</h3>
-                  <h3 className='tag'>MongoDB</h3>
-                  <h3 className='tag'>ExpressJS</h3>
-                  <h3 className='tag'>NodeJS</h3>
-                </div>
-                <Typography variant='body1'>An itinerary app where you can plan and organize trips, create trip lists, and include activities</Typography>
-              </CardContent>
-            </Paper>
-          </Grid>
+          <ProjectCard 
+            projectName='Travel Bug'
+            projectCoverImg={TravelBugCover}
+            tags={['React', 'MongoDB', 'ExpressJS', 'NodeJS']}
+            elevation={2}
+            hoverElevation={11}
+            description='An itinerary app where you can plan and organize trips, create trip lists, and include activities'
+            githubLink={'https://github.com/AbeGue02/travel-bug'}
+          />
 
         </Grid>
       </div>
