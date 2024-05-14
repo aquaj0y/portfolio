@@ -235,3 +235,14 @@
 .project-details-tags > * {
   padding: 5px;
 }
+
+/* CV COMPONENT */
+
+.cv-container {
+  height: 100vh;
+}
+
+.cv-iframe {
+  height: 100vh;
+  width: 100%;
+}
