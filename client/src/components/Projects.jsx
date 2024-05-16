@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useNavigate, NavLink, Link } from 'react-router-dom';
 
+// Redux
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment, incrementByAmount } from '../counter';
+import { nomadAdvisorSlice } from '../redux/nomadAdvisorData';
+
 // MUI
 import Grid from '@mui/material/Grid';
 import { Card, CardMedia, CardContent, Typography, Stack, Paper } from '@mui/material'
@@ -19,7 +24,7 @@ import { SiMui } from "react-icons/si";
 import { SiDjango } from "react-icons/si";
 
 // Import Images
-import NomadAdvisorCover from '../assets/nomad-advisor-cover.png'
+// import NomadAdvisorCover from '../assets/nomad-advisor-cover.png'
 import TickItCover from '../assets/tick-it-1.png'
 import WeatherAPICover from '../assets/weatherAPI-cover.png'
 import NewFashionedCover from '../assets/new-fashioned-cover.png'
@@ -30,6 +35,7 @@ import { red } from '@mui/material/colors';
 
 export default function Projects() {
   let navigate = useNavigate();
+  const nomadAdvisorData = useSelector((state) => state.nomadAdvisorData)
 
   function ProjectCard({ projectName, projectCoverImg, tags, initialElevation = 2, hoverElevation = 11, description, demoLink, githubLink}) {
     const [elevation, setElevation] = useState(initialElevation)
@@ -39,7 +45,8 @@ export default function Projects() {
       <Grid className='project-item' item xs={12} md={6}>
         <NavLink
           to={`/projects/${projectName}`}
-          state={{projectName, projectCoverImg, tags, description}}
+          // Navlink state to pass down states, use useLocation to receive
+          state={{projectName, projectCoverImg, tags, description, demoLink, githubLink}}
         >
           <Paper
             sx={{ maxWidth: '45em', m: 'auto' }}
@@ -153,12 +160,14 @@ export default function Projects() {
           
           {/* Nomad Advisor */}
           <ProjectCard 
-            projectName= 'Nomad Advisor'
-            projectCoverImg={NomadAdvisorCover}
-            tags={['React', 'Django', 'MUI']}
+            projectName= {nomadAdvisorData.projectName}
+            projectCoverImg={nomadAdvisorData.projectCoverImg}
+            tags={nomadAdvisorData.tags}
             elevation={2}
             hoverElevation={11}
-            description = 'For travelers and digital nomads in discovering new cities and sharing their experiences'
+            description={nomadAdvisorData.description}
+            demoLink={nomadAdvisorData.demoLink}
+            githubLink={nomadAdvisorData.githubLink}
           />
 
           <ProjectCard 

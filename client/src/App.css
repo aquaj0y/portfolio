@@ -188,6 +188,10 @@
   padding-bottom: 10em;
 }
 
+.project-item:hover {
+  filter: drop-shadow(0 0 1.5em #ed6e78);
+}
+
 .tags-container {
   display: flex;
   width: 40%;
@@ -197,7 +201,6 @@
 }
 
 /* PROJECTDETAILS COMPONENT */
-
 .project-details-container {
   max-width: 80%;
   margin: 0 auto;
@@ -205,9 +208,7 @@
 }
 
 .project-details-container > * {
-  /* border: 1px solid black; */
-  padding-top: 1em;
-  /* padding-bottom: 2em; */
+  padding: 0.5em;
 }
 
 .screenshots-container {

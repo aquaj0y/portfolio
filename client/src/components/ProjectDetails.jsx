@@ -1,20 +1,16 @@
 import {useLocation} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 // MUI
 import Button from '@mui/material/Button';
 
 export default function ProjectDetails() {
   const location = useLocation()
-  console.log(location)
-  console.log(location.state)
+  // console.log(location)
+  // console.log(location.state)
   
   const projectData = location.state
-
-  const travelBugData = {
-    gitHubLink: 'https://github.com/AbeGue02/travel-bug',
-    demoLink: '',
-    imgClassName: 'mobile'
-  }
 
   return (
     <div className='project-details-container'>
@@ -24,8 +20,10 @@ export default function ProjectDetails() {
       </div>
       <div className='project-title-container'> 
         <h2 className='project-title'>{projectData.projectName}</h2>
-        <Button className='project-details-btn' variant='outlined'>Demo</Button>
-        <Button className='project-details-btn' variant='outlined'>Code</Button>
+        <a target='_blank' href={projectData.demoLink}><Button className='project-details-btn' variant='outlined'
+        target='_blank' to={projectData.githubLink}
+        >Demo</Button></a>
+        <a target='_blank' href={projectData.githubLink}><Button className='project-details-btn' variant='outlined'>Code</Button></a>
       </div>
 
       <p>{projectData.description}</p>
