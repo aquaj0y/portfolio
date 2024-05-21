@@ -32,23 +32,23 @@ export default function Header() {
             <Link to='/'><img className="logo" src={Logo} /></Link>
             <ul className='navbar'>
               <li>
-                <Link to="/projects">Projects</Link>
+                <Link to="/projects" className='nav-link'>Projects</Link>
               </li>
               <li>
-                <Link to="/web3">Web3</Link>
+                <Link to="/web3" className='nav-link'>Web3</Link>
               </li>
               <li>
-                <Link to="/cv">CV</Link>
+                <Link to="/cv" className='nav-link'>CV</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" className='nav-link'>Contact</Link>
               </li>
             </ul>
           </nav>
         </div>
         :
         <div className='header-container-simple'>
-          <Link to='/'><img className="logo" src={Logo} /></Link>
+          <Link to='/'><img className="logo logo-lg" src={Logo} /></Link>
         </div>
       }
     </>
