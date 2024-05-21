@@ -268,7 +268,6 @@
 
 /* WEB3 COMPONENT */
 .clients-container {
-  overflow: hidden;
   position: relative;
   width: 100%;
   padding: 2em;
@@ -281,6 +280,10 @@
   overflow: auto;
   animation: scrollClients 50s linear infinite;
   width: 200%;
+}
+
+.clients::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes scrollClients {

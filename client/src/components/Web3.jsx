@@ -14,9 +14,10 @@ export default function Web3() {
         <Typography variant='h3' sx={{paddingTop: '1em', paddingBottom: '2em', textAlign: 'center' }}>Clients I Worked With</Typography>
         <div className='clients'>
           <Grid container spacing={5} direction="row"
-          wrap='nowrap'
-          justifyContent="center"
-          alignItems="center"
+            wrap='nowrap'
+            justifyContent="center"
+            alignItems="center"
+            overflow= "hidden"
           >
             {/* GLIF */}
             <Grid item xs={4} sm={3} md={2.4} >
