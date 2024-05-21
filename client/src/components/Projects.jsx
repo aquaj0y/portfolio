@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useNavigate, NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment, incrementByAmount } from '../counter';
-import { nomadAdvisorSlice } from '../redux/nomadAdvisorData';
+// import { nomadAdvisorSlice } from '../redux/nomadAdvisorData';
 
 // MUI
 import Grid from '@mui/material/Grid';
-import { Card, CardMedia, CardContent, Typography, Stack, Paper } from '@mui/material'
+import { CardMedia, CardContent, Typography, Stack, Paper } from '@mui/material'
 
 // REACT ICON Technologies
 import { IconContext } from "react-icons";
@@ -34,12 +34,11 @@ import { red } from '@mui/material/colors';
 
 
 export default function Projects() {
-  let navigate = useNavigate();
   const nomadAdvisorData = useSelector((state) => state.nomadAdvisorData)
+  console.log('what is nomadAdvisorData', nomadAdvisorData)
 
   function ProjectCard({ projectName, projectCoverImg, tags, initialElevation = 2, hoverElevation = 11, description, demoLink, githubLink}) {
     const [elevation, setElevation] = useState(initialElevation)
-
 
     return (
       <Grid className='project-item' item xs={12} md={6}>
@@ -79,8 +78,9 @@ export default function Projects() {
   return (
     <>
       {/* Technologies I use */}
-      <Typography variant='h3' sx={{paddingTop: '1em', paddingBottom: '2em', textAlign: 'center' }}>Technologies I Use</Typography>
-      <div className='technologies'>
+      <div className='technologies-container'>
+        <Typography variant='h3' sx={{paddingTop: '1em', paddingBottom: '2em', textAlign: 'center' }}>Technologies I Use</Typography>
+        <div className='technologies'>
         <Grid container spacing={5} direction="row"
         wrap='wrap'
         justifyContent="center"
@@ -151,6 +151,7 @@ export default function Projects() {
 
         </IconContext.Provider>
         </Grid>
+        </div>
       </div>
 
       {/* Projects */}
