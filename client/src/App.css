@@ -275,6 +275,7 @@
 }
 
 .clients {
+  overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
