@@ -2,12 +2,21 @@
   width: 100%;
 }
 
+.logo-lg-home {
+  height: 10em;
+  width: 10em;
+  border-radius: 30%;
+  transition: all 1s;
+}
+
 .logo {
   height: 6em;
+  width: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
   border-radius: 30%;
+  transition: all 1s;
 }
 
 .logo-lg {
@@ -47,37 +56,78 @@
 /* /////////////////////////////////// */
 /* Header */
 /* /////////////////////////////////// */
+/* header {
+  background-color: red;
+  border: 3px solid black;
+  z-index: 10;
+} */
+
+header {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .nav-container {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 228, 196, 0.3);
+  position: fixed;
 }
 
-.navbar {
+.sticky {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 228, 196, 0.3);
+  position: fixed;
+}
+
+.inner-nav {
+  width: 90%;
   display: flex;
   justify-content: space-between;
+  transition: all 1s;
 }
 
-.navbar li {
+.inner-nav-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5em;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu li {
   padding: 1em;
   list-style-type: none;
-  font-size: 1.5em;
 }
 
-.header-container,
+.nav-link {
+  font-size: 1.75em;
+  font-weight: 600;
+}
+
+/* .header-container,
 .header-container-simple {
   background-color: rgba(255, 228, 196, 0.3);
   position: sticky;
   top: 0;
-}
+} */
 
-.header-container-simple {
-  /* use text-align: center for inline elements, img is inline element */
-  text-align: center;
+/* .header-container-simple { */
+/* use text-align: center for inline elements, img is inline element */
+/* text-align: center;
   display: flex;
   justify-content: center;
   padding: 1.2em;
-}
+} */
 
 /* /////////////////////////////////// */
 /* Home Page */
